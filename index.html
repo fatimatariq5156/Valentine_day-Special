@@ -6,7 +6,6 @@
   <title>Happy Valentine’s Day ❤️</title>
   <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
-    /* General Reset */
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
     body {
@@ -21,7 +20,7 @@
       color: #fff;
     }
 
-    /* Hearts Animation */
+    /* Floating hearts */
     .heart {
       position: absolute;
       width: 50px;
@@ -49,7 +48,7 @@
       100% { transform: translateY(-100vh) rotate(-45deg) scale(1.5); opacity: 0; }
     }
 
-    /* Container */
+    /* Main container */
     .container {
       position: relative;
       z-index: 10;
@@ -98,42 +97,34 @@
       text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
     }
 
-    /* Slideshow */
+    /* Slideshow in the middle */
     .slideshow {
-      display: none; /* Hidden initially */
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 20;
+      position: relative;
+      width: 350px;
+      height: 250px;
+      margin: 20px auto 0;
+      border-radius: 20px;
+      overflow: hidden;
+      display: none; /* Hidden until Play clicked */
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     }
 
     .slides img {
-      max-width: 80%;
-      max-height: 80%;
-      border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-      animation: fade 1s;
-    }
-
-    @keyframes fade { from {opacity:0;} to {opacity:1;} }
-
-    /* Close Button */
-    .close-btn {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 2rem;
-      color: #fff;
-      cursor: pointer;
-      transition: 0.3s;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      border-radius: 20px;
     }
 
-    .close-btn:hover { color: #ff6f91; }
+    .slides img.active {
+      opacity: 1;
+    }
+
   </style>
 </head>
 <body>
@@ -150,6 +141,15 @@
     <h1>Happy Valentine’s Day ❤️</h1>
     <p>Roses are red, violets are blue,<br>This little surprise is just for you!<br>Let love fill your heart and joy fill your day!</p>
     <a href="#!" class="btn" onclick="startExperience()">🎵 Play Music & Memories</a>
+
+    <!-- Slideshow -->
+    <div class="slideshow" id="slideshow">
+      <div class="slides">
+        <img src="images/pic1.jpg" alt="Memory 1" class="active">
+        <img src="images/pic2.jpg" alt="Memory 2">
+        <img src="images/pic3.jpg" alt="Memory 3">
+      </div>
+    </div>
   </div>
 
   <!-- Music -->
@@ -157,17 +157,6 @@
     <source src="music/perfect.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-
-  <!-- Slideshow overlay -->
-  <div class="slideshow" id="slideshow">
-    <span class="close-btn" onclick="closeSlideshow()">×</span>
-    <div class="slides">
-      <img src="images/pic1.jpg" alt="Memory 1">
-      <img src="images/pic2.jpg" alt="Memory 2">
-      <img src="images/pic3.jpg" alt="Memory 3">
-      <!-- Add more images as needed -->
-    </div>
-  </div>
 
   <footer>Made with ❤️ for someone special</footer>
 
@@ -183,23 +172,18 @@
       music.play().catch(()=>{});
 
       // Show slideshow
-      slideshow.style.display = 'flex';
+      slideshow.style.display = 'block';
+
+      // Start slideshow
       slideIndex = 0;
-      slides.forEach((img,i) => img.style.display = 'none');
-      slides[slideIndex].style.display = 'block';
+      slides.forEach((img, i) => img.classList.remove('active'));
+      slides[slideIndex].classList.add('active');
 
-      // Start sliding
       slideInterval = setInterval(() => {
-        slides[slideIndex].style.display = 'none';
+        slides[slideIndex].classList.remove('active');
         slideIndex = (slideIndex + 1) % slides.length;
-        slides[slideIndex].style.display = 'block';
-      }, 3000); // change slide every 3 sec
-    }
-
-    function closeSlideshow() {
-      slideshow.style.display = 'none';
-      clearInterval(slideInterval);
-      music.pause();
+        slides[slideIndex].classList.add('active');
+      }, 3000); // change every 3 sec
     }
   </script>
 </body>
