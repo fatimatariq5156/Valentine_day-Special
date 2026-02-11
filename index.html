@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Valentine’s Day ❤️</title>
+  <title>Happy Promise Day ❤️</title>
   <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
@@ -13,7 +13,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); /* soft blue gradient */
       overflow: hidden;
       position: relative;
       text-align: center;
@@ -25,7 +25,7 @@
       position: absolute;
       width: 50px;
       height: 50px;
-      background: red;
+      background: #ffb6c1; /* soft pink hearts */
       transform: rotate(-45deg);
       animation: float 6s infinite;
     }
@@ -35,7 +35,7 @@
       position: absolute;
       width: 50px;
       height: 50px;
-      background: red;
+      background: #ffb6c1;
       border-radius: 50%;
     }
 
@@ -79,14 +79,14 @@
       padding: 12px 30px;
       font-size: 1rem;
       color: #fff;
-      background: #ff6f91;
+      background: #6a11cb; /* soft purple button */
       border-radius: 50px;
       text-decoration: none;
       transition: all 0.3s ease;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
-    .btn:hover { transform: scale(1.1); background: #ff3c7e; }
+    .btn:hover { transform: scale(1.1); background: #2575fc; }
 
     footer {
       position: absolute;
@@ -121,15 +121,13 @@
       border-radius: 20px;
     }
 
-    .slides img.active {
-      opacity: 1;
-    }
+    .slides img.active { opacity: 1; }
 
   </style>
 </head>
 <body>
 
-  <!-- Hearts floating -->
+  <!-- Floating hearts -->
   <div class="heart" style="left: 10%; animation-delay: 0s;"></div>
   <div class="heart" style="left: 30%; animation-delay: 2s;"></div>
   <div class="heart" style="left: 50%; animation-delay: 4s;"></div>
@@ -138,8 +136,9 @@
 
   <!-- Main container -->
   <div class="container">
-    <h1>Happy Valentine’s Day ❤️</h1>
-    <p>Roses are red, violets are blue,<br>This little surprise is just for you!<br>Let love fill your heart and joy fill your day!</p>
+    <h1>Happy Promise Day ❤️</h1>
+    <p>On this special day, I promise to always keep you close,<br>
+       cherish every moment, and make you smile forever!</p>
     <a href="#!" class="btn" onclick="startExperience()">🎵 Play Music & Memories</a>
 
     <!-- Slideshow -->
@@ -183,7 +182,7 @@
         slides[slideIndex].classList.remove('active');
         slideIndex = (slideIndex + 1) % slides.length;
         slides[slideIndex].classList.add('active');
-      }, 3000); // change every 3 sec
+      }, 3000);
     }
   </script>
 </body>
