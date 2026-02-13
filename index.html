@@ -1,189 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Promise Day ❤️ Fahad </title>
-  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Someone Special ❤️</title>
 
-    body {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); /* soft blue gradient */
-      overflow: hidden;
-      position: relative;
-      text-align: center;
-      color: #fff;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300&display=swap" rel="stylesheet">
 
-    /* Floating hearts */
-    .heart {
-      position: absolute;
-      width: 50px;
-      height: 50px;
-      background: #ffb6c1; /* soft pink hearts */
-      transform: rotate(-45deg);
-      animation: float 6s infinite;
-    }
+<style>
 
-    .heart::before, .heart::after {
-      content: "";
-      position: absolute;
-      width: 50px;
-      height: 50px;
-      background: #ffb6c1;
-      border-radius: 50%;
-    }
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Poppins', sans-serif;
+    background: linear-gradient(135deg,#0a0a0a,#1a001f,#000000);
+    overflow:hidden;
+    color:white;
+}
 
-    .heart::before { top: -25px; left: 0; }
-    .heart::after { left: 25px; top: 0; }
+/* Floating glow background */
+body::before{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    background: radial-gradient(circle,#ff4da6,transparent);
+    filter: blur(150px);
+    top:-100px;
+    left:-100px;
+}
 
-    @keyframes float {
-      0% { transform: translateY(100vh) rotate(-45deg) scale(1); opacity: 0; }
-      50% { opacity: 1; }
-      100% { transform: translateY(-100vh) rotate(-45deg) scale(1.5); opacity: 0; }
-    }
+body::after{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    background: radial-gradient(circle,#7a00ff,transparent);
+    filter: blur(150px);
+    bottom:-100px;
+    right:-100px;
+}
 
-    /* Main container */
-    .container {
-      position: relative;
-      z-index: 10;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      max-width: 500px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-    }
+/* Main Card */
+.card{
+    width:90%;
+    max-width:600px;
+    padding:40px;
+    border-radius:25px;
+    backdrop-filter: blur(18px);
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 0 40px rgba(255,0,128,0.2);
+    text-align:center;
+    position:relative;
+    z-index:1;
+}
 
-    h1 {
-      font-family: 'Sacramento', cursive;
-      font-size: 3rem;
-      margin-bottom: 20px;
-      text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-    }
+/* Heading */
+h1{
+    font-family:'Playfair Display', serif;
+    font-size:36px;
+    letter-spacing:2px;
+    margin-bottom:15px;
+}
 
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
-      line-height: 1.6;
-      text-shadow: 1px 1px 8px rgba(0,0,0,0.2);
-    }
+/* Quote */
+.quote{
+    font-size:14px;
+    opacity:0.8;
+    margin-bottom:25px;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 12px 30px;
-      font-size: 1rem;
-      color: #fff;
-      background: #6a11cb; /* soft purple button */
-      border-radius: 50px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
+/* Slideshow Container */
+.slideshow{
+    width:250px;
+    height:300px;
+    margin:auto;
+    overflow:hidden;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(255,0,150,0.4);
+    display:none;
+}
 
-    .btn:hover { transform: scale(1.1); background: #2575fc; }
+.slideshow img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    position:absolute;
+    opacity:0;
+    transition:1.5s;
+}
 
-    footer {
-      position: absolute;
-      bottom: 10px;
-      width: 100%;
-      font-size: 0.9rem;
-      color: #fff;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
-    }
+.slideshow img.active{
+    opacity:1;
+}
 
-    /* Slideshow in the middle */
-    .slideshow {
-      position: relative;
-      width: 350px;
-      height: 250px;
-      margin: 20px auto 0;
-      border-radius: 20px;
-      overflow: hidden;
-      display: none; /* Hidden until Play clicked */
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
+/* Button */
+button{
+    margin-top:25px;
+    padding:14px 35px;
+    border:none;
+    border-radius:50px;
+    background: linear-gradient(45deg,#ff0066,#6600ff);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.4s;
+    box-shadow:0 0 20px rgba(255,0,150,0.4);
+}
 
-    .slides img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-      border-radius: 20px;
-    }
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 30px rgba(255,0,200,0.7);
+}
 
-    .slides img.active { opacity: 1; }
-
-  </style>
+</style>
 </head>
+
 <body>
 
-  <!-- Floating hearts -->
-  <div class="heart" style="left: 10%; animation-delay: 0s;"></div>
-  <div class="heart" style="left: 30%; animation-delay: 2s;"></div>
-  <div class="heart" style="left: 50%; animation-delay: 4s;"></div>
-  <div class="heart" style="left: 70%; animation-delay: 1s;"></div>
-  <div class="heart" style="left: 90%; animation-delay: 3s;"></div>
+<div class="card">
 
-  <!-- Main container -->
-  <div class="container">
-    <h1>Happy Promise Day ❤️</h1>
-    <p>On this special day, I promise to always keep you close,<br>
-       cherish every moment, and make you smile forever!</p>
-    <a href="#!" class="btn" onclick="startExperience()">🎵 Play Music & Memories</a>
+<h1>For You ❤️</h1>
 
-    <!-- Slideshow -->
-    <div class="slideshow" id="slideshow">
-      <div class="slides">
-        <img src="images/pic1.jpg" alt="Memory 1" class="active">
-        <img src="images/pic2.jpg" alt="Memory 2">
-        <img src="images/pic3.jpg" alt="Memory 3">
-      </div>
-    </div>
-  </div>
+<p class="quote">
+"Some souls just feel like home… and you are mine."
+</p>
 
-  <!-- Music -->
-  <audio id="music" loop>
-    <source src="music/perfect.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+<div class="slideshow" id="slideshow">
+    <img src="images/pic1.jpg" class="active">
+    <img src="images/pic2.jpg">
+    <img src="images/pic3.jpg">
+</div>
 
-  <footer>Made with ❤️ for someone special</footer>
+<button onclick="startExperience()">Click Here</button>
 
-  <script>
-    const music = document.getElementById('music');
-    const slideshow = document.getElementById('slideshow');
-    const slides = document.querySelectorAll('.slides img');
-    let slideIndex = 0;
-    let slideInterval;
+</div>
 
-    function startExperience() {
-      // Play music
-      music.play().catch(()=>{});
+<audio id="music" src="music/perfect.mp3"></audio>
 
-      // Show slideshow
-      slideshow.style.display = 'block';
+<script>
 
-      // Start slideshow
-      slideIndex = 0;
-      slides.forEach((img, i) => img.classList.remove('active'));
-      slides[slideIndex].classList.add('active');
+let current = 0;
+let slides = document.querySelectorAll(".slideshow img");
 
-      slideInterval = setInterval(() => {
-        slides[slideIndex].classList.remove('active');
-        slideIndex = (slideIndex + 1) % slides.length;
-        slides[slideIndex].classList.add('active');
-      }, 3000);
-    }
-  </script>
+function startExperience(){
+
+    document.getElementById("music").play();
+    document.getElementById("slideshow").style.display="block";
+
+    setInterval(()=>{
+        slides[current].classList.remove("active");
+        current = (current + 1) % slides.length;
+        slides[current].classList.add("active");
+    },3000);
+}
+
+</script>
+
 </body>
 </html>
