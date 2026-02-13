@@ -3,117 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Someone Special ❤️</title>
+<title>For Fahad ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300&display=swap" rel="stylesheet">
 
 <style>
 
 body{
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-family:'Poppins', sans-serif;
-    background: linear-gradient(135deg,#0a0a0a,#1a001f,#000000);
-    overflow:hidden;
-    color:white;
+margin:0;
+font-family:Poppins;
+background:linear-gradient(160deg,#050505,#140016,#000000);
+color:white;
+overflow-x:hidden;
 }
 
-/* Floating glow background */
-body::before{
-    content:"";
-    position:absolute;
-    width:400px;
-    height:400px;
-    background: radial-gradient(circle,#ff4da6,transparent);
-    filter: blur(150px);
-    top:-100px;
-    left:-100px;
+/* LOVE QUOTES SECTION */
+.quote-section{
+text-align:center;
+padding:80px 20px 30px;
 }
 
-body::after{
-    content:"";
-    position:absolute;
-    width:400px;
-    height:400px;
-    background: radial-gradient(circle,#7a00ff,transparent);
-    filter: blur(150px);
-    bottom:-100px;
-    right:-100px;
+.quote-section h1{
+font-family:'Great Vibes', cursive;
+font-size:55px;
+color:#ff66c4;
+margin-bottom:20px;
 }
 
-/* Main Card */
-.card{
-    width:90%;
-    max-width:600px;
-    padding:40px;
-    border-radius:25px;
-    backdrop-filter: blur(18px);
-    background: rgba(255,255,255,0.05);
-    box-shadow: 0 0 40px rgba(255,0,128,0.2);
-    text-align:center;
-    position:relative;
-    z-index:1;
-}
-
-/* Heading */
-h1{
-    font-family:'Playfair Display', serif;
-    font-size:36px;
-    letter-spacing:2px;
-    margin-bottom:15px;
-}
-
-/* Quote */
 .quote{
-    font-size:14px;
-    opacity:0.8;
-    margin-bottom:25px;
+max-width:700px;
+margin:auto;
+line-height:1.8;
+opacity:0.85;
+font-size:16px;
 }
 
-/* Slideshow Container */
-.slideshow{
-    width:250px;
-    height:300px;
-    margin:auto;
-    overflow:hidden;
-    border-radius:20px;
-    box-shadow:0 0 20px rgba(255,0,150,0.4);
-    display:none;
+/* MEMORY CARD */
+.memory-box{
+margin:60px auto;
+width:280px;
+height:350px;
+position:relative;
+display:none;
 }
 
-.slideshow img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    position:absolute;
-    opacity:0;
-    transition:1.5s;
+/* Polaroid style */
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+background:white;
+padding:10px 10px 40px;
+box-shadow:0 15px 30px rgba(0,0,0,0.7);
+border-radius:6px;
+transform:rotate(-2deg);
+opacity:0;
+transition:1.5s;
 }
 
-.slideshow img.active{
-    opacity:1;
+.slide img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:4px;
 }
 
-/* Button */
-button{
-    margin-top:25px;
-    padding:14px 35px;
-    border:none;
-    border-radius:50px;
-    background: linear-gradient(45deg,#ff0066,#6600ff);
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-    transition:0.4s;
-    box-shadow:0 0 20px rgba(255,0,150,0.4);
+.slide.active{
+opacity:1;
+transform:rotate(0deg) scale(1.05);
 }
 
-button:hover{
-    transform:scale(1.1);
-    box-shadow:0 0 30px rgba(255,0,200,0.7);
+/* BUTTON */
+.start-btn{
+display:block;
+margin:40px auto;
+padding:14px 40px;
+border:none;
+border-radius:40px;
+background:linear-gradient(45deg,#ff0099,#6600ff);
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.4s;
+box-shadow:0 0 25px rgba(255,0,150,0.5);
+}
+
+.start-btn:hover{
+transform:scale(1.1);
+}
+
+/* floating glow */
+.glow{
+position:fixed;
+width:400px;
+height:400px;
+background:radial-gradient(circle,#ff00aa,transparent);
+filter:blur(160px);
+top:-100px;
+left:-100px;
+z-index:-1;
 }
 
 </style>
@@ -121,41 +109,67 @@ button:hover{
 
 <body>
 
-<div class="card">
+<div class="glow"></div>
 
-<h1>For You ❤️</h1>
+<!-- QUOTES -->
+<div class="quote-section">
+
+<h1>Fahad...</h1>
 
 <p class="quote">
-"Some souls just feel like home… and you are mine."
+Some people come into life as chapters…  
+But you came as my whole story.  
+<br><br>
+In a world full of temporary feelings,  
+you became my forever emotion.  
+<br><br>
+Every moment with you feels like poetry  
+that my heart never learned to write  
+but somehow always felt.  
+<br><br>
+If love had a face…  
+it would look like you.
 </p>
 
-<div class="slideshow" id="slideshow">
-    <img src="images/pic1.jpg" class="active">
-    <img src="images/pic2.jpg">
-    <img src="images/pic3.jpg">
 </div>
 
-<button onclick="startExperience()">Click Here</button>
+<!-- MEMORY SLIDES -->
+<div class="memory-box" id="memoryBox">
+
+<div class="slide active">
+<img src="images/pic1.jpg">
+</div>
+
+<div class="slide">
+<img src="images/pic2.jpg">
+</div>
+
+<div class="slide">
+<img src="images/pic3.jpg">
+</div>
 
 </div>
 
-<audio id="music" src="music/perfect.mp3"></audio>
+<button class="start-btn" onclick="startMemories()">Unlock My Heart</button>
+
+<audio id="song" src="music/perfect.mp3"></audio>
 
 <script>
 
-let current = 0;
-let slides = document.querySelectorAll(".slideshow img");
+let slides=document.querySelectorAll(".slide");
+let index=0;
 
-function startExperience(){
+function startMemories(){
 
-    document.getElementById("music").play();
-    document.getElementById("slideshow").style.display="block";
+document.getElementById("song").play();
+document.getElementById("memoryBox").style.display="block";
 
-    setInterval(()=>{
-        slides[current].classList.remove("active");
-        current = (current + 1) % slides.length;
-        slides[current].classList.add("active");
-    },3000);
+setInterval(()=>{
+slides[index].classList.remove("active");
+index=(index+1)%slides.length;
+slides[index].classList.add("active");
+},3500);
+
 }
 
 </script>
